@@ -27,37 +27,29 @@
         </div>
 
 
-        <!-- CONTAINER CHECADOR -->
+        <!-- Container Checador -->
+
+
         <div class="lockscreen-wrapper">
-            <!-- ASISTENCIA -->
-            <div class="lockscreen-title2">
-                <H3>ASISTENCIA.</H3>
-            </div>
-            <!-- IMAGEN -->
-            <div class="lockscreen-item">
-                <div class="lockscreen-image">
+            <div class="container row">
+                <div class="col-12 text-center">
+                    <h1>Asistencia</h1>
+                </div>
+                <div class="col-md-5 lockscreen-image">
                     <img src="public/images/logocecyt3.png" alt="User Image">
                 </div>
-                <!-- FORM ASISTENCIA -->
-                <form action="" class="lockscreen-credentials" name="formulario" id="formulario" method="POST">
-                    <div class="input-group">
-                        <input type="password" class="form-control" name="id_usr" id="id_usr" placeholder="ID Usuario">
-                        <select name="id_evento" id="id_evento">
-                            <option value="1">Entrada</option>
-                            <option value="2">Salida</option>
-                        </select>
-                        <button id="registro_a" class="btn btn-primary" type="submit">Registrar Asistencia.</button>
-                    </div>
-                </form>
-
-            </div>
-            <!-- BOTON LOGIN-->
-            <div class="text-center">
-            </div>
-            <div class="lockscreen-footer text-center">
-                <a href="../admin/">Iniciar Sesión.</a>
+                <div class="col-md-7">
+                    <form action="" action="./controllers/insert_user_c" name="formulario" id="formulario" method="POST" autocomplete="off">
+                        <div class="form-group">
+                            <input type="email" class="form-control" style="margin-left: 0px!important" name="id_usr" id="id_usr" placeholder="Número de Empleado">
+                            <small id="id_usr_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
+                        </div>
+                        <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar Asistencia.</button>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
 
 

@@ -33,7 +33,7 @@ body {
 
 /*CHECADOR*/
 .lockscreen-wrapper {
-  font-family: "Shadows Into Light", cursive;
+  /* font-family: "Shadows Into Light", cursive; */
   font-size: 20px;
   width: 40%;
   height: 45%;
@@ -87,7 +87,7 @@ form select {
   margin-top: 12px;
 }
 .lockscreen-title2 {
-  font-family: "Shadows Into Light", cursive;
+  /* font-family: "Shadows Into Light", cursive; */
   font-size: 25px;
 }
 .lockscreen-footer {
@@ -95,7 +95,7 @@ form select {
 }
 /*RELOJ*/
 .lockscreen-title {
-  font-family: "Shadows Into Light", cursive;
+  /* font-family: "Shadows Into Light", cursive; */
   font-size: 25px;
   margin-top: 15%;
 }
