@@ -1,24 +1,16 @@
 <?php
-require_once ("../models/insert_user.php");
+require_once ("./models/insert_user.php");
 
 class EmpleadosC{
 
-    public function RegistrarAsistenciaEC(){
+    static public function RegistrarAsistenciaEC(){
       
-        if(isset($_POST["id_usr"])){
-            $datosf = array("id_usr"=>$_POST["id_usr"], "id_evento"=>$_POST["id_evento"]);
-
-            $TBD = "registros";
-
-            $respuesta = EmpleadosM::RegistrarAsistenciaEM($datosf, $TBD);
-
-            print_r($datosf);
-
-           /*  if($respuesta == "bien"){
-                header("Location:home.php");
-            }else{
-                echo "error";
-            } */
+        if(isset($_POST["numEmpleado"])){
+            $datosf = [ "numEmpleado" => $_POST["numEmpleado"] ];
+            $respuesta = EmpleadosM::RegistrarAsistenciaEM($datosf);
+            echo json_encode($respuesta);
+        }else{
+            echo "error";
         }
          
     }
