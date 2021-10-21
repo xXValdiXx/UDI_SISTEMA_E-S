@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+   
+}
+html {
+    
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+body {
+    width: 100%;
+    height: 100%;
+    margin:auto;
+  }
+
+.container-lo{
+    left:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: #682444;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+
+/*CHECADOR*/
+.lockscreen-wrapper{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    width:40%;
+    height:45%;
+    background-color: #fff;
+    padding: 5px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 12%;
+    margin-left: 90px;
+}
+
+.lockscreen-item{
+    width: 80%;
+    display: flex;
+}
+.lockscreen-image img{
+    margin-top: 5px;
+    width:150px;
+    
+}
+.lockscreen-credentials{
+    margin-top: 13px;
+}
+form input{
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 64px;
+    width: 80%;
+   background: #F2F2F2;
+   outline: none;
+   border-color: #682444;
+   font-size: 18px;
+   border-radius: 3px;
+}
+form select{
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 64px;
+    width: 80%;
+   background: #F2F2F2;
+   outline: none;
+   border-color: #682444;
+   font-size: 18px;
+   border-radius: 3px;
+}
+.input-group button{
+    margin-left: 95px;
+    font-size: 18px;
+    margin-top: 12px;
+}
+.lockscreen-title2{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+}
+.lockscreen-footer{
+    font-size: 25px;
+}
+/*RELOJ*/
+.lockscreen-title{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+    margin-top: 15%;
+}
+.container-reloj{
+    width: 40% !important;
+    padding: 5px;
+    text-align: center !important;
+    font-family: 'Lato', sans-serif;
+    display:flex;
+    flex-direction: column;
+    background-color: #fff !important;
+}
+.container-reloj H1{
+    
+    font-size: 5rem;
+    font-weight:400px;
+    
+}
+.vector-image img{
+    width: 70%;
+
+}
+
+
