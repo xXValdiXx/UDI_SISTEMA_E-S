@@ -14,7 +14,7 @@
 <body>
 
     <div class="container-lo">
-        <!-- CONTAINER RELOJ -->
+        <!-- Container Fecha y Hora -->
         <div class="container-reloj">
             <div class="lockscreen-title">
                 <H3>CONTROL ASISTENCIA CECyT 3 "Estanislao Ramírez Ruiz”</H3>
@@ -26,10 +26,7 @@
             </div>
         </div>
 
-
         <!-- Container Checador -->
-
-
         <div class="lockscreen-wrapper">
             <div class="container row">
                 <div class="col-12 text-center">
@@ -39,10 +36,11 @@
                     <img src="public/images/logocecyt3.png" alt="User Image">
                 </div>
                 <div class="col-md-7">
-                    <form action="" action="./controllers/insert_user_c" name="formulario" id="formulario" method="POST" autocomplete="off">
+                    <form action="./rutas.php" name="formulario" id="formulario" method="POST" autocomplete="off">
+                        <input type="hidden" class="d-none"  name="ruta" id="ruta" value="peticionES">
                         <div class="form-group">
-                            <input type="email" class="form-control" style="margin-left: 0px!important" name="id_usr" id="id_usr" placeholder="Número de Empleado">
-                            <small id="id_usr_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
+                            <input type="text" class="form-control" style="margin-left: 0px!important" name="numEmpleado" id="numEmpleado" placeholder="Número de Empleado" value="2014030514">
+                            <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar Asistencia.</button>
                     </form>
