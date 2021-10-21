@@ -1,5 +1,5 @@
 <?php
-require_once ("../Models/insert_user.php");
+require_once ("../models/insert_user.php");
 
 class EmpleadosC{
 
@@ -12,11 +12,13 @@ class EmpleadosC{
 
             $respuesta = EmpleadosM::RegistrarAsistenciaEM($datosf, $TBD);
 
-            if($respuesta == "bien"){
+            print_r($datosf);
+
+           /*  if($respuesta == "bien"){
                 header("Location:home.php");
             }else{
                 echo "error";
-            }
+            } */
         }
          
     }

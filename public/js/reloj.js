@@ -1,19 +1,28 @@
-const time = document.getElementById('time');
-const date = document.getElementById('date');
+const time = document.getElementById("time");
+const date = document.getElementById("date");
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+const monthNames = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
 ];
 
 const interval = setInterval(() => {
+  const local = new Date();
 
-    const local = new Date();
-    
-    let day = local.getDate(),
-        month = local.getMonth(),
-        year = local.getFullYear();
+  let day = local.getDate(),
+    month = local.getMonth(),
+    year = local.getFullYear();
 
-    time.innerHTML = local.toLocaleTimeString();
-    date.innerHTML = `${day} ${monthNames[month]} ${year}`;
-
+  time.innerHTML = local.toLocaleTimeString();
+  date.innerHTML = `${day} de ${monthNames[month]} del ${year}`;
 }, 1000);
