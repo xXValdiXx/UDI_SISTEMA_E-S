@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Oct 21, 2021 at 05:05 PM
--- Server version: 5.7.32
--- PHP Version: 7.4.12
+-- Servidor: localhost:8889
+-- Tiempo de generación: 21-10-2021 a las 18:40:07
+-- Versión del servidor: 5.7.32
+-- Versión de PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,126 +18,123 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `CECyT3_E/S`
+-- Base de datos: `CECyT3_E/S`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evento`
+-- Estructura de tabla para la tabla `evento`
 --
 
 CREATE TABLE `evento` (
-  `id_evento` int(11) NOT NULL,
-  `evento_rgt` varchar(15) COLLATE utf8_spanish_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `evento` varchar(20) COLLATE utf8_spanish_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `evento`
+-- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`id_evento`, `evento_rgt`) VALUES
+INSERT INTO `evento` (`id`, `evento`) VALUES
 (1, 'Entrada'),
 (2, 'Salida');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `registros`
+-- Estructura de tabla para la tabla `registros`
 --
 
 CREATE TABLE `registros` (
-  `id_registros` int(11) NOT NULL,
-  `fecha_reg` date NOT NULL,
-  `hora_reg` time(6) NOT NULL,
-  `id_usr` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time(6) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `id_evento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `registros`
+--
+
+INSERT INTO `registros` (`id`, `fecha`, `hora`, `id_usuario`, `id_evento`) VALUES
+(1, '2021-10-21', '13:36:34.000000', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id_usr` int(11) NOT NULL,
-  `nombre_usr` varchar(75) COLLATE utf8_spanish_ci NOT NULL,
-  `apellido_paterno_usr` varchar(75) COLLATE utf8_spanish_ci NOT NULL,
-  `apellido_materno_usr` varchar(75) COLLATE utf8_spanish_ci NOT NULL,
-  `area` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `cargo` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `rfc` int(20) NOT NULL,
-  `correo` varchar(75) COLLATE utf8_spanish_ci NOT NULL,
-  `num_telefono` int(15) NOT NULL,
-  `contraseña` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(150) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `id` int(11) UNSIGNED NOT NULL,
+  `nombre` varchar(255) NOT NULL DEFAULT '',
+  `apellidoPaterno` varchar(255) NOT NULL DEFAULT '',
+  `apellidoMaterno` varchar(255) NOT NULL DEFAULT '',
+  `area` varchar(200) NOT NULL DEFAULT '',
+  `puesto` varchar(200) NOT NULL DEFAULT '',
+  `numEmpleado` varchar(100) NOT NULL DEFAULT '',
+  `correo` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `imagen` varchar(255) NOT NULL DEFAULT '',
+  `telefonoPersonal` varchar(25) DEFAULT NULL,
+  `extensionIPN` varchar(11) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usr`, `nombre_usr`, `apellido_paterno_usr`, `apellido_materno_usr`, `area`, `cargo`, `rfc`, `correo`, `num_telefono`, `contraseña`, `imagen`) VALUES
-(1, 'Angel', 'valdivia', 'sanchez', 'UDI', 'JEFE', 233543, 'DFGDFGDD', 45654645, '123', 'DSFDGD');
+INSERT INTO `usuarios` (`id`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `area`, `puesto`, `numEmpleado`, `correo`, `password`, `imagen`, `telefonoPersonal`, `extensionIPN`) VALUES
+(1, 'Alan', 'Garduño', 'Pineda', 'UDI', 'Jefe', '2014030514', 'agarduno@ipn.mx', 'qaz', 'image1.png', NULL, '74000');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `evento`
+-- Indices de la tabla `evento`
 --
 ALTER TABLE `evento`
-  ADD PRIMARY KEY (`id_evento`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `registros`
+-- Indices de la tabla `registros`
 --
 ALTER TABLE `registros`
-  ADD PRIMARY KEY (`id_registros`),
-  ADD KEY `id_usr` (`id_usr`),
-  ADD KEY `id_usr_2` (`id_usr`),
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usr` (`id_usuario`),
   ADD KEY `id_evento` (`id_evento`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usr`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `evento`
+-- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `registros`
+-- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id_registros` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `registros`
---
-ALTER TABLE `registros`
-  ADD CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`id_usr`) REFERENCES `usuarios` (`id_usr`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `evento` (`id_evento`);
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
