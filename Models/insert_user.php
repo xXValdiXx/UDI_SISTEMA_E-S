@@ -20,6 +20,8 @@ class EmpleadosM extends connection{
             return 0;
         }
 
+        
+
         // Verificar que el usuario no tenga una entrada incompleta y el dia de la peticion no exista un registro de entrada, en caso de exisitir la peticion es de salida, si no será de entrada.
         $verificarEntradaPrevia = connection::Conexion()->prepare("SELECT * FROM registros WHERE id_usuario = :id_usuario ORDER BY id DESC LIMIT 1 ");
         $verificarEntradaPrevia->BindParam(":id_usuario", $datosUsuario["id"], PDO::PARAM_STR);
