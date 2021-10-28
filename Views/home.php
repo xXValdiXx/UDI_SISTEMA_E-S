@@ -50,7 +50,7 @@
                             <input type="text" class="form-control" style="margin-left: 0px!important" name="numEmpleado" id="numEmpleado" placeholder="Número de Empleado" value="2014030514">
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
-                        <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar Asistencia.</button>
+                        <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
                     </form>
                 </div>
             </div>
@@ -116,7 +116,13 @@
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
 
-                console.log(inside([position.coords.latitude, position.coords.longitude], poligonoCECyT));
+                var userIsInside = inside([position.coords.latitude, position.coords.longitude], poligonoCECyT);
+
+                console.log(userIsInside);
+
+                if(!userIsInside){
+                    $("#registro_a").attr('disabled', 'disabled');
+                }
             });
         }
     </script>
