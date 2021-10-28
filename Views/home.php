@@ -122,6 +122,8 @@
 
                 if(!userIsInside){
                     $("#registro_a").attr('disabled', 'disabled');
+                }else{
+                    $("#registro_a").removeAttr('disabled');
                 }
             });
         }
