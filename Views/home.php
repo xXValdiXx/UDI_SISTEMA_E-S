@@ -97,7 +97,7 @@
                 console.log(position.coords.latitude);
                 console.log(position.coords.longitude);
 
-                var mymap = L.map('mapid').setView([19.570153, -99.019647], 17);
+                var mymap = L.map('mapid').setView([19.570738, -99.020023], 17);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
