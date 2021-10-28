@@ -120,6 +120,8 @@
 
                 console.log(userIsInside);
 
+                var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+
                 if(!userIsInside){
                     $("#registro_a").attr('disabled', 'disabled');
                 }else{
