@@ -51,6 +51,11 @@
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="simular" name="simular">
+                            <label class="form-check-label" for="exampleCheck1">Simular</label>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -91,13 +96,46 @@
     </script>
 
     <script>
+        $('#simular').on('change', function() {
+            simularAccion = $(this).is(':checked');
+            if (simularAccion) {
+                localStorage.setItem('simular', '1');
+            } else {
+                localStorage.setItem('simular', '0');
+            }
+        });
+
+
+
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition(function(position) {
-                console.log(position);
+                /* console.log(position);
                 console.log(position.coords.latitude);
-                console.log(position.coords.longitude);
+                console.log(position.coords.longitude); */
 
-                var mymap = L.map('mapid').setView([19.570738, -99.020023], 17);
+                xInitial = position.coords.latitude;
+                yInitial = position.coords.longitude;
+
+                console.log(localStorage.getItem('simular'));
+
+                if (localStorage.getItem('simular') == 1) {
+                    var poligonoCECyT = [
+                        [19.570222, -99.018302],
+                        [19.569065, -99.019934],
+                        [19.570851, -99.021411],
+                        [19.571915, -99.019832]
+                    ];
+                } else {
+
+                    var poligonoCECyT = [
+                        [19.624741, -99.039027],
+                        [19.619902, -99.036516],
+                        [19.618103, -99.041451],
+                        [19.622357, -99.044026]
+                    ];
+                }
+
+                var mymap = L.map('mapid').setView([xInitial, yInitial], 16);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
@@ -107,24 +145,19 @@
                     accessToken: 'pk.eyJ1IjoiYWxhbmdwbXgiLCJhIjoiY2tka2wxc2V6MGI5MzJya3lzZGhpeGlvMSJ9.ms5inSkLA9CGyO1CvNZP3A'
                 }).addTo(mymap);
 
-                var poligonoCECyT = [
-                    [19.570222, -99.018302],
-                    [19.569065, -99.019934],
-                    [19.570851, -99.021411],
-                    [19.571915, -99.019832]
-                ];
+
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
 
-                var userIsInside = inside([position.coords.latitude, position.coords.longitude], poligonoCECyT);
+                var userIsInside = inside([xInitial, yInitial], poligonoCECyT);
 
                 console.log(userIsInside);
 
-                var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+                var marker = L.marker([xInitial, yInitial]).addTo(mymap);
 
-                if(!userIsInside){
+                if (!userIsInside) {
                     $("#registro_a").attr('disabled', 'disabled');
-                }else{
+                } else {
                     $("#registro_a").removeAttr('disabled');
                 }
             });
