@@ -133,13 +133,11 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="margin: 0 auto;">
+                    <table class="table table-bordered" id="listadoUsuarios" width="100%" cellspacing="0" style="margin: 0 auto;">
                       <thead>
                         <tr>
 
-                          <th>Nombres(s)</th>
-                          <th>A.Paterno</th>
-                          <th>A.Materno</th>
+                          <th>Usuario</th>
                           <th>Area</th>
                           <th>Puesto</th>
                           <th>Numero Empleado</th>
@@ -149,33 +147,8 @@
                           <th>Hora Salida</th>
 
                       </thead>
-                      <tfoot>
-                        <tr>
 
-                          <th>Nombres(s)</th>
-                          <th>A. Paterno</th>
-                          <th>A. Materno</th>
-                          <th>Area</th>
-                          <th>Puesto</th>
-                          <th>Numero Empleado</th>
-                          <th>Fecha Entrada</th>
-                          <th>Hora Entrada</th>
-                          <th>Fecha Salida</th>
-                          <th>Hora Salida</th>
-
-                        </tr>
-                      </tfoot>
                       <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-
-                        </tr>
 
                       </tbody>
                     </table>
@@ -195,7 +168,7 @@
 
     <?php require_once "views/footer.php" ?>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 
     <!-- AdminLTE App -->
@@ -204,7 +177,8 @@
     <script src="plugins/datatables_2/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables_2/dataTables.bootstrap4.min.js"></script>
     <script>
-      console.log("Comienzo");
+      var table_ListaUsuarios = $('#listadoUsuarios').DataTable();
+
       $.ajax({
         url: "../rutas.php",
         type: "post",
@@ -212,10 +186,24 @@
           ruta: 'obtenerUsuarios'
         },
         success: function(r) {
+          r = JSON.parse(r);
+
+          $.each(r, function(index, item) {
+            table_ListaUsuarios.row.add({
+              0: item['nombre'] + " " + item['apellidoPaterno'] + " " + item['apellidoMaterno'],
+              1: item['area'],
+              2: item['puesto'],
+              3: item['numEmpleado'],
+              4: 'Por Obtener',
+              5: 'Por Obtener',
+              6: 'Por Obtener',
+              7: 'Por Obtener'
+            }).draw();
+          });
+
           console.log(r);
         }
       });
-      console.log("Final");
     </script>
 
 
