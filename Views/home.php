@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         #mapid {
-            height: 350px;
+            height: 270px;
+            width: 100%
         }
     </style>
 </head>
@@ -38,7 +39,7 @@
         <div class="lockscreen-wrapper">
             <div class="container row">
                 <div class="col-12 text-center">
-                    <h1>Asistencia</h1>
+                    <h1>Asistencia.</h1>
                 </div>
                 <div class="col-md-5 lockscreen-image">
                     <img src="public/images/logocecyt3.png" alt="User Image">
@@ -51,11 +52,7 @@
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
-
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="simular" name="simular">
-                            <label class="form-check-label" for="exampleCheck1">Simular</label>
-                        </div>
+                        
                     </form>
                 </div>
             </div>
@@ -145,7 +142,12 @@
                     accessToken: 'pk.eyJ1IjoiYWxhbmdwbXgiLCJhIjoiY2tka2wxc2V6MGI5MzJya3lzZGhpeGlvMSJ9.ms5inSkLA9CGyO1CvNZP3A'
                 }).addTo(mymap);
 
-
+                var poligonoCECyT = [
+                    [19.324236, -99.085764],
+                    [19.324094, -99.084841],
+                    [19.322470, -99.086097],
+                    [19.322308, -99.085185]
+                ];
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
 

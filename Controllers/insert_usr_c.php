@@ -1,6 +1,7 @@
 <?php
 require_once ("./models/insert_user.php");
 
+
 class EmpleadosC{
 
     static public function RegistrarAsistenciaEC(){
@@ -14,5 +15,6 @@ class EmpleadosC{
         }
          
     }
+
 }
 ?>
