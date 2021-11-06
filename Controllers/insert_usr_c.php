@@ -9,9 +9,9 @@ class EmpleadosC{
         if(isset($_POST["numEmpleado"])){
             $datosf = [ "numEmpleado" => $_POST["numEmpleado"] ];
             $respuesta = EmpleadosM::RegistrarAsistenciaEM($datosf);
-            echo json_encode($respuesta);
+            return $respuesta;
         }else{
-            echo "error";
+            return "error";
         }
          
     }

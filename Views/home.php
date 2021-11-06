@@ -40,9 +40,31 @@
             <div class="container row">
                 <div class="col-12 text-center">
                     <h1>Asistencia.</h1>
+                    <?php
+                    if (isset($_COOKIE["msg"])) {
+                        if ($_COOKIE["msg"] == 1) {
+                            setcookie("msg", "", time() - 3600); ?>
+                            <div class="alert alert-success" role="alert">
+                                Evento guardado correctamente
+                            </div>
+                        <?php } else if ($_COOKIE["msg"] == 0) {
+                            setcookie("msg", "", time() - 3600); ?>
+                            <div class="alert alert-danger" role="alert">
+                                A ocurrido un error, verifiquelo con el administrador.
+                            </div>
+                        <?php } else {
+                            setcookie("msg", "", time() - 3600);
+                        ?> <?php } ?>
+                        <script>
+                            setTimeout(function() {
+                                location.reload()
+                            }, 4500)
+                        </script>
+                    <?php } ?>
+
                 </div>
                 <div class="col-md-5 lockscreen-image">
-                    <img src="public/images/logocecyt3.png" alt="User Image">
+                    <img src="public/images/logocecyt3.png" alt="User Image" height="100%">
                 </div>
                 <div class="col-md-7">
                     <form action="./rutas.php" name="formulario" id="formulario" method="POST" autocomplete="off">
@@ -52,7 +74,7 @@
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
-                        
+
                     </form>
                 </div>
             </div>
@@ -93,9 +115,6 @@
     </script>
 
     <script>
-
-
-
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition(function(position) {
 
@@ -105,7 +124,7 @@
 
                 console.log(localStorage.getItem('simular'));
 
-                
+
 
                 var mymap = L.map('mapid').setView([xInitial, yInitial], 16);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

@@ -13,7 +13,6 @@ class CEmpleadosM extends connection{
         $dataUser->execute();
         $datosUsuario = $dataUser->fetch(PDO::FETCH_ASSOC);
 
-
         return $datosUsuario;
 
     }   
