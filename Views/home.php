@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         #mapid {
-            height: 350px;
+            height: 270px;
+            width: 100%
         }
     </style>
 </head>
@@ -38,7 +39,7 @@
         <div class="lockscreen-wrapper">
             <div class="container row">
                 <div class="col-12 text-center">
-                    <h1>Asistencia</h1>
+                    <h1>Asistencia.</h1>
                 </div>
                 <div class="col-md-5 lockscreen-image">
                     <img src="public/images/logocecyt3.png" alt="User Image">
@@ -51,6 +52,7 @@
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
+                        
                     </form>
                 </div>
             </div>
@@ -97,7 +99,7 @@
                 console.log(position.coords.latitude);
                 console.log(position.coords.longitude);
 
-                var mymap = L.map('mapid').setView([19.570153, -99.019647], 17);
+                var mymap = L.map('mapid').setView([19.323922, -99.084887], 17);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
@@ -108,10 +110,10 @@
                 }).addTo(mymap);
 
                 var poligonoCECyT = [
-                    [19.570222, -99.018302],
-                    [19.569065, -99.019934],
-                    [19.570851, -99.021411],
-                    [19.571915, -99.019832]
+                    [19.324236, -99.085764],
+                    [19.324094, -99.084841],
+                    [19.322470, -99.086097],
+                    [19.322308, -99.085185]
                 ];
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
