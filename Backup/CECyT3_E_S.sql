@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 06-11-2021 a las 17:16:34
+-- Tiempo de generación: 09-11-2021 a las 02:37:49
 -- Versión del servidor: 5.7.32
 -- Versión de PHP: 7.4.12
 
@@ -102,7 +102,9 @@ INSERT INTO `registros` (`id`, `fechaEntrada`, `horaEntrada`, `id_usuario`, `fec
 (2, '2021-10-27', '18:14:00.000000', 1, '2021-10-27', '18:14:13.000000', 1, 1),
 (3, '2021-10-27', '18:14:20.000000', 1, '2021-10-27', '18:14:27.000000', 1, 1),
 (4, '2021-10-27', '23:28:38.000000', 1, '2021-10-27', '23:29:23.000000', 1, 1),
-(5, '2021-10-27', '23:30:14.000000', 1, '2021-10-27', '23:30:33.000000', 1, 1);
+(5, '2021-10-27', '23:30:14.000000', 1, '2021-10-27', '23:30:33.000000', 1, 1),
+(8, '2021-11-08', '18:56:26.000000', 2, '2021-11-08', '18:57:42.000000', 1, 1),
+(10, '2021-11-08', '20:20:06.000000', 1, '2021-11-08', '20:20:08.000000', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +293,7 @@ ALTER TABLE `evento`
 -- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `subarea`
