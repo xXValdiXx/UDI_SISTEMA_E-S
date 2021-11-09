@@ -40,9 +40,31 @@
             <div class="container row">
                 <div class="col-12 text-center">
                     <h1>Asistencia.</h1>
+                    <?php
+                    if (isset($_COOKIE["msg"])) {
+                        if ($_COOKIE["msg"] == 1) {
+                            setcookie("msg", "", time() - 3600); ?>
+                            <div class="alert alert-success" role="alert">
+                                Evento guardado correctamente
+                            </div>
+                        <?php } else if ($_COOKIE["msg"] == 0) {
+                            setcookie("msg", "", time() - 3600); ?>
+                            <div class="alert alert-danger" role="alert">
+                                A ocurrido un error, verifiquelo con el administrador.
+                            </div>
+                        <?php } else {
+                            setcookie("msg", "", time() - 3600);
+                        ?> <?php } ?>
+                        <script>
+                            setTimeout(function() {
+                                location.reload()
+                            }, 4500)
+                        </script>
+                    <?php } ?>
+
                 </div>
                 <div class="col-md-5 lockscreen-image">
-                    <img src="public/images/logocecyt3.png" alt="User Image">
+                    <img src="public/images/logocecyt3.png" alt="User Image" height="100%">
                 </div>
                 <div class="col-md-7">
                     <form action="./rutas.php" name="formulario" id="formulario" method="POST" autocomplete="off">
@@ -52,7 +74,7 @@
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
                         </div>
                         <button id="registro_a" class="btn btn-primary btn-block" type="submit">Registrar.</button>
-                        
+
                     </form>
                 </div>
             </div>
@@ -95,11 +117,16 @@
     <script>
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition(function(position) {
-                console.log(position);
-                console.log(position.coords.latitude);
-                console.log(position.coords.longitude);
 
-                var mymap = L.map('mapid').setView([19.323922, -99.084887], 17);
+
+                xInitial = position.coords.latitude;
+                yInitial = position.coords.longitude;
+
+                console.log(localStorage.getItem('simular'));
+
+
+
+                var mymap = L.map('mapid').setView([xInitial, yInitial], 16);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                     maxZoom: 18,
@@ -110,23 +137,23 @@
                 }).addTo(mymap);
 
                 var poligonoCECyT = [
-                    [19.324236, -99.085764],
-                    [19.324094, -99.084841],
-                    [19.322470, -99.086097],
-                    [19.322308, -99.085185]
+                    [19.618941, -99.042041],
+                    [19.619648, -99.040517],
+                    [19.620765, -99.041137],
+                    [19.620179, -99.042339]
                 ];
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
 
-                var userIsInside = inside([position.coords.latitude, position.coords.longitude], poligonoCECyT);
+                var userIsInside = inside([xInitial, yInitial], poligonoCECyT);
 
                 console.log(userIsInside);
 
-                var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+                var marker = L.marker([xInitial, yInitial]).addTo(mymap);
 
-                if(!userIsInside){
+                if (!userIsInside) {
                     $("#registro_a").attr('disabled', 'disabled');
-                }else{
+                } else {
                     $("#registro_a").removeAttr('disabled');
                 }
             });

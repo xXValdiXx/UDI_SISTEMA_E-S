@@ -36,7 +36,7 @@ body {
   /* font-family: "Shadows Into Light", cursive; */
   font-size: 20px;
   width: 40%;
-  height: 45%;
+  height: 60%;
   background-color: #fff;
   padding: 5px;
   display: flex !important;
@@ -45,7 +45,7 @@ body {
   align-items: center;
   border-radius: 20px;
   margin-top: 12%;
-  margin-left: 90px;
+  margin-left: 8%;
 }
 
 .lockscreen-item {
