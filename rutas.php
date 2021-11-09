@@ -11,7 +11,12 @@ switch($_POST['ruta']){
     /** Ruta para registrar una peticion de entrada o salida */
     case 'peticionES':
         $obj = EmpleadosC::RegistrarAsistenciaEC();
-        echo json_encode($obj);
+        if($obj[0] == "00000"){
+            setcookie("msg", 1, time() + 5, "/");
+        }else{
+            setcookie("msg", 0, time() + 5, "/");
+        }
+        header('Location: ./index.php');
         break;
 
     /** Ruta para obtener todos los usuarios */
