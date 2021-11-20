@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+html {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  margin: auto;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.container-lo {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #682444;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+/*CHECADOR*/
+.lockscreen-wrapper {
+  /* font-family: "Shadows Into Light", cursive; */
+  font-size: 20px;
+  width: 40%;
+  height: 60%;
+  background-color: #fff;
+  padding: 5px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 12%;
+  margin-left: 8%;
+}
+
+.lockscreen-item {
+  width: 80%;
+  display: flex;
+}
+.lockscreen-image img {
+  margin-top: 5px;
+  width: 120px;
+}
+.lockscreen-credentials {
+  margin-top: 13px;
+}
+form input {
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 64px;
+  width: 80%;
+  background: #f2f2f2;
+  outline: none;
+  border-color: #682444;
+  font-size: 18px;
+  border-radius: 3px;
+}
+form select {
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 64px;
+  width: 80%;
+  background: #f2f2f2;
+  outline: none;
+  border-color: #682444;
+  font-size: 18px;
+  border-radius: 3px;
+}
+.input-group button {
+  margin-left: 95px;
+  font-size: 18px;
+  margin-top: 12px;
+}
+.lockscreen-title2 {
+  /* font-family: "Shadows Into Light", cursive; */
+  font-size: 25px;
+}
+.lockscreen-footer {
+  font-size: 25px;
+}
+/*RELOJ*/
+.lockscreen-title {
+  /* font-family: "Shadows Into Light", cursive; */
+  font-size: 25px;
+  margin-top: 6%;
+}
+.container-reloj {
+  width: 40% !important;
+  padding: 5px;
+  text-align: center !important;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff !important;
+}
+.container-reloj H1 {
+  font-size: 5rem;
+  font-weight: 400px;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-top: 70px;
+}
+.vector-image img {
+  width: 70%;
+}
+
+/*Responsive*/
+@media screen and (max-width: 1200px) {
+  body {
+      text-align: center;
+      margin: auto;
+      background-color:#682444;
+  }
+
+  .container-lo {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #682444;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-reloj {
+  width: 100% !important;
+  padding: 5px;
+  text-align: center !important;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff !important;
+}
+.lockscreen-wrapper {
+  /* font-family: "Shadows Into Light", cursive; */
+  font-size: 10px;
+  width: 100%;
+  height: 45%;
+  background-color: #fff;
+  padding: 5px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 0px;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  width: 82%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}  
+}
+
+/*Responsive*/
+@media screen and (max-width: 770px) and (max-height:720px) {
+  body {
+      text-align: center;
+      margin: auto;
+      background-color:#682444;
+  }
+  h3{
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+  .lockscreen-wrapper {
+    /* font-family: "Shadows Into Light", cursive; */
+    font-size: 5px;
+    width: 100%;
+    height: 45%;
+    background-color: #fff;
+    padding: 5px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 0px;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container-reloj H1{
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+  lockscreen-image img {
+    margin-top: 5px;
+    width: 140px;
+}
+.btn{
+  font-size: 0.6rem;
+}
+.form-control {
+  font-size: 0.6rem;
+}
+
+}
