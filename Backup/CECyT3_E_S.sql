@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 09-11-2021 a las 02:37:49
+-- Tiempo de generación: 20-11-2021 a las 05:55:07
 -- Versión del servidor: 5.7.32
--- Versión de PHP: 7.4.12
+-- Versión de PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -101,10 +102,17 @@ INSERT INTO `registros` (`id`, `fechaEntrada`, `horaEntrada`, `id_usuario`, `fec
 (1, '2021-10-27', '18:13:43.000000', 1, '2021-10-27', '18:13:51.000000', 1, 1),
 (2, '2021-10-27', '18:14:00.000000', 1, '2021-10-27', '18:14:13.000000', 1, 1),
 (3, '2021-10-27', '18:14:20.000000', 1, '2021-10-27', '18:14:27.000000', 1, 1),
-(4, '2021-10-27', '23:28:38.000000', 1, '2021-10-27', '23:29:23.000000', 1, 1),
+(4, '2021-10-27', '23:28:38.000000', 1, NULL, NULL, 1, NULL),
 (5, '2021-10-27', '23:30:14.000000', 1, '2021-10-27', '23:30:33.000000', 1, 1),
-(8, '2021-11-08', '18:56:26.000000', 2, '2021-11-08', '18:57:42.000000', 1, 1),
-(10, '2021-11-08', '20:20:06.000000', 1, '2021-11-08', '20:20:08.000000', 1, 1);
+(6, '2021-11-06', '13:37:15.000000', 1, '2021-11-06', '13:37:29.000000', 1, 1),
+(7, '2021-11-06', '13:37:58.000000', 1, '2021-11-06', '13:46:26.000000', 1, 1),
+(8, '2021-11-06', '13:47:31.000000', 1, '2021-11-06', '13:47:42.000000', 1, 1),
+(9, '2021-11-06', '13:49:50.000000', 2, '2021-11-06', '13:50:43.000000', 1, 1),
+(10, '2021-11-06', '13:51:21.000000', 1, '2021-11-06', '13:51:39.000000', 1, 1),
+(11, '2021-11-06', '13:56:02.000000', 1, '2021-11-06', '13:57:30.000000', 1, 1),
+(12, '2021-11-06', '13:57:32.000000', 2, '2021-11-06', '13:58:17.000000', 1, 1),
+(13, '2021-11-06', '13:59:25.000000', 1, '2021-11-06', '14:00:15.000000', 1, 1),
+(14, '2021-11-06', '14:02:18.000000', 1, NULL, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -233,8 +241,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `area`, `puesto`, `numEmpleado`, `correo`, `password`, `imagen`, `telefonoPersonal`, `extensionIPN`) VALUES
-(1, 'Alan', 'Garduño', 'Pineda', 'UDI', 'Jefe', '2014030514', 'agarduno@ipn.mx', 'qaz', 'image1.png', NULL, '74000'),
-(2, 'Angel', 'Valdivia', 'Sánchez', 'UDI', 'Jefe 2', '2015041645', 'avaldivia@ipn.mx', 'qaz', 'image1.png', NULL, '740001');
+(1, 'Alan', 'Garduño', 'Pineda', 'UDI', 'Jefe', '2014030514', 'agarduno@ipn.mx', '$2y$10$9aAwBjCL8oVWpeEANI2oLed8V80UJnofY5FBRZHiY27FnoKLVDetS', 'image1.png', NULL, '74000'),
+(2, 'Angel', 'Valdivia', 'Sánchez', 'UDI', 'Jefe 2', '2015041645', 'avaldivia@ipn.mx', '$2y$10$9aAwBjCL8oVWpeEANI2oLed8V80UJnofY5FBRZHiY27FnoKLVDetS', 'image1.png', NULL, '740001');
 
 --
 -- Índices para tablas volcadas
@@ -293,7 +301,7 @@ ALTER TABLE `evento`
 -- AUTO_INCREMENT de la tabla `registros`
 --
 ALTER TABLE `registros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `subarea`
@@ -306,6 +314,7 @@ ALTER TABLE `subarea`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
