@@ -22,4 +22,27 @@ class CEmpleadosM extends connection
         */
         return $datosUsuario;
     }
+
+    static public function loginUserM($datosf){
+        session_start();
+        
+        //verficar usuario
+        $dataUser = connection::Conexion()->prepare("SELECT numEmpleado, password FROM usuarios WHERE numEmpleado = :numEmpleado");
+        $dataUser->BindParam(":numEmpleado", $datosf["numEmpleado"], PDO::PARAM_INT);
+      
+       
+        $dataUser->execute();
+        
+        $datosUsuario=$dataUser->fetch(PDO::FETCH_ASSOC);
+
+         //verficar usuario y contraseña
+        if($dataUser->rowCount() > 0 && password_verify($datosf["password"],$datosUsuario["password"])){
+            
+            $_SESSION['Sesion_activa'] = 1;
+        }
+
+        
+        return 1;
+    
+    }
 }
