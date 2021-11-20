@@ -5,9 +5,8 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">

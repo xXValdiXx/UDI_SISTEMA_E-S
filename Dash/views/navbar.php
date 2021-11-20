@@ -9,7 +9,7 @@
         <a href="homeDash.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item">
-	  <a class="nav-link" href="../../Config/logout.php">Cerrar Sesión</a>
+	  <a class="nav-link" href="../Config/logout.php">Cerrar Sesión</a>
         </li>
     </ul>
     
