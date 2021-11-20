@@ -24,10 +24,17 @@ switch($_POST['ruta']){
         $obj = CEmpleadosC::VisualizarEmpleadosC();        
         break;
 
+    case 'login':
+        session_start();
+        $obj = CEmpleadosC::loginUserC();
+        
+        if(isset($_SESSION['Sesion_activa'])){
+            header('Location: ./Dash/homeDash.php');
+        }
+        break;
+
+
     default:
         echo 'No existe la ruta especificada';
         break;
 }
-
-?>
-
