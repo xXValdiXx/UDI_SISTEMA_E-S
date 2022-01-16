@@ -10,6 +10,12 @@ class CEmpleadosC{
         
     }
 
+    static public function VisualizarEmpleadosDC(){
+        $respuesta = CEmpleadosM::VisualizarEmpleadosDM();
+        echo json_encode($respuesta);      
+        
+    }
+
     static public function loginUserC(){
         if(isset($_POST["numEmpleado"])){
             $datosf["numEmpleado"] = $_POST["numEmpleado"];
