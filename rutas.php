@@ -12,12 +12,29 @@ switch ($_POST['ruta']) {
 
         /** Ruta para registrar una peticion de entrada o salida */
     case 'peticionES':
+        function  verIP()
+        {
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $IP = $_SERVER['HTTP_CLIENT_IP'];
+            } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $IP = $_SERVER['REMOTE_ADDR'];
+            }
+            return $IP;
+        }
+        
+        $ip_addr2 =  "192.168.100.25.";
+
+        
+        
         $obj = EmpleadosC::RegistrarAsistenciaEC();
-        if ($obj[0] == "00000") {
+        if ($obj[0] == "00000" && ip2long($IP.verIP()) == ip2long($ip_addr2)) {
             setcookie("msg", 1, time() + 5, "/");
         } else {
             setcookie("msg", 0, time() + 5, "/");
         }
+        
         header('Location: ./index.php');
         break;
 
@@ -25,7 +42,8 @@ switch ($_POST['ruta']) {
     case 'obtenerUsuarios':
         $obj = CEmpleadosC::VisualizarEmpleadosC();
         break;
-
+        
+        /** Ruta para Redirijir al DASHboard*/
     case 'login':
         $obj = CEmpleadosC::loginUserC();
 
@@ -33,8 +51,13 @@ switch ($_POST['ruta']) {
             header('Location: ./Dash/homeDash.php');
         } else {
             // URL Local
-            header('Location: http://localhost/UDI_SISTEMA_E-S/Dash/views/loginDash.php');
+            header('Location: ./Dash/views/loginDash.php');
         }
+        break;
+    
+             /** Ruta para obtener todos los usuarios  */
+    case 'obtenerUsuariosD':
+        $obj = CEmpleadosC::VisualizarEmpleadosDC();
         break;
 
 
