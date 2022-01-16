@@ -32,4 +32,12 @@ class CEmpleadosM extends connection
         $answ = $dataUser->errorInfo();
         return $answ;
     }
+    static public function VisualizarEmpleadosDM()
+    {
+        //Obtener la información de los usuarios.
+        $dataUser = connection::Conexion()->prepare("SELECT * FROM usuarios ");
+        $dataUser->execute();
+        $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+        return $datosUsuario;
+    }
 }
