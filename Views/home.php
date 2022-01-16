@@ -18,6 +18,25 @@
 </head>
 
 <body>
+<?php
+
+function verIP()
+	{
+		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+			$IP = $_SERVER['HTTP_CLIENT_IP'];
+		} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			$IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		} else {
+			$IP = $_SERVER['REMOTE_ADDR'];
+		}
+		return $IP;
+	}
+    
+    echo "Tu ip: ".verIP();
+ 
+ 
+  
+?>
 
     <div class="container-lo">
         <!-- Container Fecha y Hora -->
@@ -68,7 +87,9 @@
                 </div>
                 <div class="col-md-7">
                     <form action="./rutas.php" name="formulario" id="formulario" method="POST" autocomplete="off">
+                        
                         <input type="hidden" class="d-none" name="ruta" id="ruta" value="peticionES">
+                        
                         <div class="form-group">
                             <input type="text" class="form-control" style="margin-left: 0px!important" name="numEmpleado" id="numEmpleado" placeholder="Número de Empleado" value="2014030514">
                             <small id="numEmpleado_help" class="form-text text-danger d-none">No hemos podido identificarte</small>
@@ -137,10 +158,10 @@
                 }).addTo(mymap);
 
                 var poligonoCECyT = [
-                    [19.570686, -99.019433],
-                    [19.570572, -99.019344],
-                    [19.570663, -99.019194],
-                    [19.570820, -99.019293]
+                    [19.324240, -99.085773],
+                    [19.322478, -99.086106],
+                    [19.322311, -99.085181],
+                    [19.324089, -99.084851]
                 ];
 
                 var polygon = L.polygon(poligonoCECyT).addTo(mymap);
