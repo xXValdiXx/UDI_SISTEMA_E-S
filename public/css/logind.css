@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  html {
+    font-family: "Lato", sans-serif;;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: #682444;
+  }
+  /*login dash */
+
+img{
+    width: 300px;
+}
+
+form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form input {
+    padding: 5px;
+    width: 70%;
+    background: #f2f2f2;
+    margin: 15px;
+    border-color: black;
+    font-size: 15px;
+    border-radius: 3px;
+  }
+
+.logind{ 
+    height: 100%;
+    width: 70%;
+    margin-left: 0%;
+    background-color:  white;
+   
+    position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+}
+.logindp{ 
+    margin-left: 15%;
+    height: 100%;
+    width: 70%;
+    background-color:  white;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn.btn-primary.btn-block{
+    width: 30%;
+    border-color: black;
+    font-size: 17px;
+    border-radius: 3px;
+    padding: 5px;
+    
+}
+
+.imagenl {
+    width: 80%
+}
+.imagenl img{
+    width: 100%
+}
+
+h5{
+    text-align: center;
+}
+.textl{
+    text-align: center;
+    width: 100%;
+    font-size: 80px;
+}
