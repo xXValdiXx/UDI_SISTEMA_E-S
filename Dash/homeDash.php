@@ -51,7 +51,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item active">Dashboard </li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -135,8 +135,8 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
               <div class="card shadow mb-4">
 
                 <div class="card-header py-3">
-                  <h1 class="m-0 font-weight-bold text-primary" id="title">CONTROL USUARIOS</h1>
-                  <th><a href="#" class="btn btn-info">AÑADIR NUEVO USUARIO.</a></th>
+                  <h1 class="m-0 font-weight-bold text-primary" id="title">CONTROL ASISTENCIA</h1>
+                  
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
