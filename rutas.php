@@ -24,7 +24,7 @@ switch ($_POST['ruta']) {
             return $IP;
         }
         
-        $ip_addr2 =  "192.168.100.25.";
+        $ip_addr2 =  "8.8.8.8";
 
         
         
@@ -58,6 +58,11 @@ switch ($_POST['ruta']) {
              /** Ruta para obtener todos los usuarios  */
     case 'obtenerUsuariosD':
         $obj = CEmpleadosC::VisualizarEmpleadosDC();
+        break;
+
+    case 'agregarUs':
+        $obj = EmpleadosC::InsertarUDashC();
+        header('Location: ./Dash/UserDash.php');
         break;
 
 
