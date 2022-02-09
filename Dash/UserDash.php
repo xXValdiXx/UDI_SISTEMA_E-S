@@ -13,6 +13,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CECyT 3 | Dashboard</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -25,6 +26,8 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 
   <!-- Datatables -->
   <link href="plugins/datatables_2/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+ 
 
 </head>
 
@@ -64,35 +67,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3><?php echo $_SESSION['Sesion_activa']; ?></h3>
-
-                  <p><?php echo (!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1') ? "Redirigir":"Acceder"; ?></p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
+            
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
@@ -108,22 +83,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
-
-                  <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
+            
           </div>
           <!-- /.row -->
           <!-- Main row -->
@@ -137,7 +97,88 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
                 <div class="card-header py-3">
                   <h1 class="m-0 font-weight-bold text-primary" id="title">CONTROL USUARIOS</h1>
 
-               
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  AGREGAR NUEVO USUARIO
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="../rutas.php" name="formulario" id="formulario" method="POST" autocomplete="off">
+                        
+        <input type="hidden" class="d-none" name="ruta" id="ruta" value="agregarUs">
+        <div class="mb-3">
+
+        <label for="exampleFormControlInput1" class="form-label">NOMBRE</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="">
+        </div>  
+        
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">APELLIDO PATERNO</label>
+        <input type="text" class="form-control" name="apellidoPaterno" id="apellidoPaterno" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">APELLIDO MATERNO</label>
+        <input type="text" class="form-control"  name="apellidoMaterno" id="apellidoMaterno" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">AREA</label>
+        <input type="text" class="form-control" name="area" id="area" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">PUESTO</label>
+        <input type="text" class="form-control" name="puesto" id="puesto" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">NUMERO DE EMPLEADO</label>
+        <input type="text" class="form-control" name="numEmpleado" id="numEmpleado" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">CORREO</label>
+        <input type="text" class="form-control" name="correo" id="correo" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">PASSWORD</label>
+        <input type="text" class="form-control" name="password" id="password" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">IMAGEN</label>
+        <input type="text" class="form-control" name="imagen" id="imagen" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">TELEFONO</label>
+        <input type="text" class="form-control" name="telefonoPersonal" id="telefonoPersonal" placeholder="">
+        </div> 
+
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">EXTENSIÓN IPN</label>
+        <input type="text" class="form-control" name="extensionIPN" id="extensionIPN" placeholder="">
+        </div> 
+
+    
+                        
+        <button id="registro_UD" class="btn btn-primary btn-block" type="submit">AÑADIR.</button>
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
                 </div>
@@ -220,5 +261,8 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 
 
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 </html>
