@@ -8,7 +8,8 @@
     <title>Sistema de Asistencia al CECyT No. 3</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/login.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />º
+    
     <style>
         #mapid {
             height: 270px;
@@ -18,25 +19,7 @@
 </head>
 
 <body>
-<?php
 
-function verIP()
-	{
-		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-			$IP = $_SERVER['HTTP_CLIENT_IP'];
-		} else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-			$IP = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} else {
-			$IP = $_SERVER['REMOTE_ADDR'];
-		}
-		return $IP;
-	}
-    
-    echo "Tu ip: ".verIP();
- 
- 
-  
-?>
 
     <div class="container-lo">
         <!-- Container Fecha y Hora -->
