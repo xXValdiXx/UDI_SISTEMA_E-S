@@ -20,7 +20,6 @@ class EmpleadosM extends connection{
             return 0;
         }
 
-        
 
         // Verificar que el usuario no tenga una entrada incompleta y el dia de la peticion no exista un registro de entrada, en caso de exisitir la peticion es de salida, si no será de entrada.
         $verificarEntradaPrevia = connection::Conexion()->prepare("SELECT * FROM registros WHERE id_usuario = :id_usuario ORDER BY id DESC LIMIT 1 ");
@@ -54,5 +53,29 @@ class EmpleadosM extends connection{
         return $r;
 
     }   
+    static public function InsertarUDash($datosUsuario)
+    {
+        //Insertar la información de los usuarios.
+        $pdo = connection::Conexion()->prepare("INSERT INTO usuarios (nombre, apellidoPaterno, apellidoMaterno, area, puesto, numEmpleado, correo, password, imagen, telefonoPersonal, extensionIPN) VALUES (:nombre, :apellidoPaterno, :apellidoMaterno, :area, :puesto, :numEmpleado, :correo, :password, :imagen, :telefonoPersonal, :extensionIPN)");
+        $pdo->BindParam(":nombre", $datosUsuario["nombre"], PDO::PARAM_STR);
+        $pdo->BindParam(":apellidoPaterno", $datosUsuario["apellidoPaterno"], PDO::PARAM_STR);
+        $pdo->BindParam(":apellidoMaterno", $datosUsuario["apellidoMaterno"], PDO::PARAM_STR);
+        $pdo->BindParam(":area", $datosUsuario["area"], PDO::PARAM_STR);
+        $pdo->BindParam(":puesto", $datosUsuario["puesto"], PDO::PARAM_STR);
+        $pdo->BindParam(":numEmpleado", $datosUsuario["numEmpleado"], PDO::PARAM_STR);
+        $pdo->BindParam(":correo", $datosUsuario["correo"], PDO::PARAM_STR);
+        $pdo->BindParam(":correo", $datosUsuario["correo"], PDO::PARAM_STR);
+        $pdo->BindParam(":password", $datosUsuario["password"], PDO::PARAM_STR);
+        $pdo->BindParam(":imagen", $datosUsuario["imagen"], PDO::PARAM_STR);
+        $pdo->BindParam(":telefonoPersonal", $datosUsuario["telefonoPersonal"], PDO::PARAM_STR);
+        $pdo->BindParam(":extensionIPN", $datosUsuario["extensionIPN"], PDO::PARAM_STR);
+        
+        $pdo->execute();
+
+        $datosUsuario = $pdo->errorInfo();
+        return $datosUsuario;
+        
+    }
+    
 }
 ?>
