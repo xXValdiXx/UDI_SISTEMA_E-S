@@ -71,16 +71,15 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-
-                  <p>User Registrations</p>
+              <div class="small-box bg-primary">
+              
+                <div class="inner" name="count" id="count">
+                  
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="ion ion-person"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+               
               </div>
             </div>
             
@@ -256,6 +255,32 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 
           
         }
+      });
+    </script>
+  
+  <script>
+
+      $.ajax({
+        url: "../rutas.php",
+        type: "post",
+        data: {
+          ruta: 'Countus'
+        },
+        success: function(r){
+        r = JSON.parse(r);
+        var bodyHTML = '';
+        if( Object.keys(r).length > 0 ){
+          ;
+          $.each(r, function(i, item){
+            bodyHTML += `
+            <h3>USUARIOS</h3>
+            <h3> TOTALES: ${item['id']} </h3>     
+                                      `
+            
+          })
+          $('div[name="count"]').html(bodyHTML);
+        }
+      }
       });
     </script>
 

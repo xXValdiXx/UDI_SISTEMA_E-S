@@ -50,7 +50,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="homeDash.php">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard </li>
               </ol>
             </div><!-- /.col -->
@@ -64,63 +64,34 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3><?php echo $_SESSION['Sesion_activa']; ?></h3>
 
-                  <p><?php echo (!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1') ? "Redirigir":"Acceder"; ?></p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
+                <div class="inner" name="counth" id="counth">
+                
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="ion ion-clock"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                
               </div>
             </div>
+            
+         
+            
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>44</h3>
-
-                  <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-7">
               <!-- small box -->
               <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>65</h3>
-
-                  <p>Unique Visitors</p>
+                <div class="inner" name="counts" id="counts">
+                  
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-clock"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                
               </div>
             </div>
             <!-- ./col -->
@@ -211,6 +182,55 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
           
         }
       });
+    </script>
+
+    <script>
+    $.ajax({
+      url: "../rutas.php",
+      type: "post",
+      data: {
+        ruta: 'Counth'
+      },
+      success: function(r){
+      r = JSON.parse(r);
+      var bodyHTML = '';
+      if( Object.keys(r).length > 0 ){
+        ;
+        $.each(r, function(i, item){
+          bodyHTML += `
+          <H3>HORAS DE ENTRADA</H3>
+          <h3>TOTALES: ${item['horaEntrada']}</h3>
+          
+                                    `
+        })
+        $('div[name="counth"]').html(bodyHTML);
+      }
+    }
+    });
+    </script>
+
+<script>
+    $.ajax({
+      url: "../rutas.php",
+      type: "post",
+      data: {
+        ruta: 'Counths'
+      },
+      success: function(r){
+      r = JSON.parse(r);
+      var bodyHTML = '';
+      if( Object.keys(r).length > 0 ){
+        ;
+        $.each(r, function(i, item){
+          bodyHTML += `
+          <H3>HORAS DE SALIDA</H3>
+          <H3>TOTALES: ${item['horaSalida']}</H3>
+                                    `
+        })
+        $('div[name="counts"]').html(bodyHTML);
+      }
+    }
+    });
     </script>
 
 
