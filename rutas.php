@@ -24,7 +24,7 @@ switch ($_POST['ruta']) {
             return $IP;
         }
         
-        $ip_addr2 =  "8.8.8.8";
+        $ip_addr2 =  "192.168.100.25.";
 
         
         
@@ -59,13 +59,30 @@ switch ($_POST['ruta']) {
     case 'obtenerUsuariosD':
         $obj = CEmpleadosC::VisualizarEmpleadosDC();
         break;
-
+    
+        /** Ruta para agregar usuarios  */
     case 'agregarUs':
         $obj = EmpleadosC::InsertarUDashC();
         header('Location: ./Dash/UserDash.php');
         break;
 
+        /** COUNT  */
+    case 'Countus':
+        $obj = CEmpleadosC::cantidad_usuarioC();
+        break;
 
+    case 'Counth':
+        $obj = CEmpleadosC::cantidad_horasC();
+    
+        break;
+    
+        case 'Counths':
+            $obj = CEmpleadosC::cantidad_horassC();
+        
+            break;
+
+    
+    
     default:
         echo 'No existe la ruta especificada';
         break;

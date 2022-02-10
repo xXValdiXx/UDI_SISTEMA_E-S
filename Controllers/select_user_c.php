@@ -1,6 +1,6 @@
 <?php
 
-require_once ("./models/select_user.php");
+require_once ("./Models/select_user.php");
 
 class CEmpleadosC{
 
@@ -28,6 +28,22 @@ class CEmpleadosC{
         }
     }
 
+    static public function cantidad_usuarioC(){
+        $respuesta = CEmpleadosM::cantidad_usuario();
+        echo json_encode($respuesta);   
+        
+    }
 
+    static public function cantidad_horasC(){
+        $respuesta = CEmpleadosM::cantidad_horas();
+        echo json_encode($respuesta);   
+        
+    }
+    
+    static public function cantidad_horassC(){
+        $respuesta = CEmpleadosM::cantidad_horass();
+        echo json_encode($respuesta);   
+        
+    }
 }
 ?>

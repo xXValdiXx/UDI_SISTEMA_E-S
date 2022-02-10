@@ -36,8 +36,41 @@ class CEmpleadosM extends connection
     {
         //Obtener la información de los usuarios.
         $dataUser = connection::Conexion()->prepare("SELECT * FROM usuarios ");
+
         $dataUser->execute();
+
         $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
         return $datosUsuario;
     }
+
+    static public function cantidad_usuario(){
+        $dataUser = connection::Conexion()->prepare("SELECT count(*) id FROM usuarios");
+        $dataUser->execute();
+
+        $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+        return $datosUsuario;
+       
+    }
+
+    static public function cantidad_horas(){
+        $dataUser = connection::Conexion()->prepare("SELECT count(*) horaEntrada FROM registros WHERE fechaEntrada =DATE(NOW())");
+        $dataUser->execute();
+
+        $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+        return $datosUsuario;
+
+        
+    }
+
+    static public function cantidad_horass(){
+    $dataUser = connection::Conexion()->prepare("SELECT count(*) horaSalida FROM registros WHERE fechaSalida =DATE(NOW())");
+    $dataUser->execute();
+
+    $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+    return $datosUsuario;
+    }
+
+    
+   
 }
+
