@@ -1,6 +1,6 @@
 <?php
 
-require_once ("./Models/select_user.php");
+require_once ("./models/select_user.php");
 
 class CEmpleadosC{
 
