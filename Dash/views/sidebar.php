@@ -25,7 +25,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="homeDash.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -53,9 +53,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="ReportesDash.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                <a href="ReDash.php" class="nav-link active">
+                 
+                  <p>REPORTES</p>
                 </a>
               </li>
             </ul>
