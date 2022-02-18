@@ -70,6 +70,17 @@ class CEmpleadosM extends connection
     return $datosUsuario;
     }
 
+    static public function ReportIn() 
+    {
+        //Obtener la información de los usuarios.
+        $dataUser = connection::Conexion()->prepare("SELECT a.id, a.nombre, a.apellidoPaterno, a.apellidoMaterno, a.area, a.correo, a.numEmpleado, g.horaEntrada, g.fechaEntrada, g.horaSalida, g.fechaSalida FROM usuarios AS a INNER JOIN registros AS g ON a.id=g.id_usuario");
+       
+        $dataUser->execute();
+
+        $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+        return $datosUsuario;
+    }
+
     
    
 }
