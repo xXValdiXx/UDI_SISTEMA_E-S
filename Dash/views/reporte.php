@@ -61,7 +61,7 @@ $pdf->Image('../public/sep.png',10,40,195,15);
 
 $pdf->SetFont('Arial','B',10);
 $pdf->SetFillColor(158, 158, 158);
-
+$pdf->Cell(7);
 	$pdf->Cell(5,5,'Id',1, 0, 'C',true);
 	$pdf->Cell(30,5, 'Num. Empleado',1, 0, 'C', true);
 	$pdf->Cell(10,5, 'Area',1, 0, 'LR', true);
@@ -83,6 +83,7 @@ $rspta = $articulo->ReportIn($id_us,$fecha_inicio,$fecha_fin);
 foreach($rspta as $row)
 {
 	$pdf->SetFont('Arial','',10);
+	$pdf->Cell(7);
 	$pdf->Cell(5,5, $row['id'],1, 0, 'C');
 	$pdf->Cell(30,5, $row['numEmpleado'],1, 0, 'C');
 	$pdf->Cell(10,5, $row['area'],1, 0, 'C');
