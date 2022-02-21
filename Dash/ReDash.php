@@ -72,27 +72,35 @@ require_once "../Models/select_user.php";
        
      
 
-        <div class="FORM-group col-lg-2  ">
+        <div class="form-inline">
+          <div class="form-group">
+            <label>Seleccione un Usuario:</label>
+            <select name="id_us" id="id_us">
+            <?php
+            $articulo = new CEmpleadosM();
 
-          <select name="id_us" id="id_us">
-           <?php
-           $articulo = new CEmpleadosM();
-
-           $rspta = $articulo->VisualizarEmpleadosDM();
-            foreach ($rspta as $valores):
-              echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
-              endforeach;
-           ?>
-          </select> <br> <br>
-      
-          <label>Fecha Inicio</label>
-          <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?php echo date("Y-m-d"); ?>">
-        
-          <label>Fecha Fin</label>
-          <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
+            $rspta = $articulo->VisualizarEmpleadosDM();
+              foreach ($rspta as $valores):
+                echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
+                endforeach;
+            ?>
+            </select>
+          </div>
           
-          <BR>
+          <div class="form-group">
+          <label>Fecha Inicio:</label>
+          <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?php echo date("Y-m-d"); ?>">
+          </div>
+
+          <div class="form-group ">
+          <label>Fecha Fin:</label>
+          <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
+          </div>
+       
+          <div class="form-group">
           <button type="submit" onclick="ReportePDF();">Generar PDF</button>
+          </div>
+         
         </div>
         
         
@@ -131,3 +139,11 @@ require_once "../Models/select_user.php";
 </body>
 
 </html>
+
+<style>
+  .form-inline{
+    display: flex;
+    justify-content: space-around;
+  }
+
+</style>
