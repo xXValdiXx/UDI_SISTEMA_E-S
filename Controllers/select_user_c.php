@@ -45,5 +45,7 @@ class CEmpleadosC{
         echo json_encode($respuesta);   
         
     }
+
+    
 }
 ?>
