@@ -70,10 +70,10 @@ class CEmpleadosM extends connection
     return $datosUsuario;
     }
 
-    static public function ReportIn() 
+    static public function ReportIn($id_us, $fecha_inicio,$fecha_fin) 
     {
         //Obtener la información de los usuarios.
-        $dataUser = connection::Conexion()->prepare("SELECT a.id, a.nombre, a.apellidoPaterno, a.apellidoMaterno, a.area, a.correo, a.numEmpleado, g.horaEntrada, g.fechaEntrada, g.horaSalida, g.fechaSalida FROM usuarios AS a INNER JOIN registros AS g ON a.id=g.id_usuario");
+        $dataUser = connection::Conexion()->prepare("SELECT a.id, a.nombre, a.apellidoPaterno, a.apellidoMaterno, a.area, a.correo, a.numEmpleado, g.horaEntrada, g.fechaEntrada, g.horaSalida, g.fechaSalida FROM usuarios AS a INNER JOIN registros AS g ON a.id=g.id_usuario WHERE a.id = '$id_us' AND fechaEntrada  BETWEEN '$fecha_inicio' AND '$fecha_fin' ");
        
         $dataUser->execute();
 
