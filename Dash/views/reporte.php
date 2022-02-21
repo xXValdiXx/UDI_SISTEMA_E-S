@@ -1,4 +1,7 @@
 <?php
+
+
+
 require('../../fpdf184/fpdf.php');
 require_once "../../Models/select_user.php";
 
@@ -52,12 +55,16 @@ $pdf->SetFillColor(158, 158, 158);
 	
 $pdf->Ln(5);
 
-
-
+if(isset($_GET['fecha_inicio'])>0 and isset($_GET['fecha_fin'])>0 and isset($_GET['id_us'])>0){
+	$id_us = $_GET['id_us'];
+	$fecha_inicio = $_GET['fecha_inicio'];
+	$fecha_fin = $_GET['fecha_fin'];
 
 $articulo = new CEmpleadosM();
 
-$rspta = $articulo->ReportIn();
+$rspta = $articulo->ReportIn($id_us,$fecha_inicio,$fecha_fin);
+}
+
 
 foreach($rspta as $row)
 {
