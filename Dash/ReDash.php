@@ -5,6 +5,7 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
   header('location: ./views/loginDash.php');
 }
 
+require_once "../Models/select_user.php";
 ?>
 
 
@@ -69,18 +70,34 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 
 
        
-      <form action="" method="post" autocomplete="off">
+     
 
-          <h6>SELECCIONA UN USUARIO.</h6>
-          <select  id="" name="select">
-            <option value="value1">Value 1</option>
-            <option value="value2" selected>Value 2</option>
-            <option value="value3">Value 3</option>
-          </select>
+        <div class="FORM-group col-lg-2  ">
+
+          <select name="id_us" id="id_us">
+           <?php
+           $articulo = new CEmpleadosM();
+
+           $rspta = $articulo->VisualizarEmpleadosDM();
+            foreach ($rspta as $valores):
+              echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
+              endforeach;
+           ?>
+          </select> <br> <br>
+      
+          <label>Fecha Inicio</label>
+          <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?php echo date("Y-m-d"); ?>">
         
-        <button type="submit">Generar PDF</button>
+          <label>Fecha Fin</label>
+          <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
+          
+          <BR>
+          <button type="submit" onclick="ReportePDF();">Generar PDF</button>
+        </div>
+        
+        
 
-       </form>
+
             
       </section>
       <!-- /.content -->
@@ -88,10 +105,23 @@ if(!isset($_SESSION['Sesion_activa']) || $_SESSION['Sesion_activa'] != '1'){
 
 
     <?php require_once "views/footer.php" ?>
+
+    <script>
+      function ReportePDF(){
+        var fecha_inicio = $('#fecha_inicio').val();
+        var fecha_fin = $('#fecha_fin').val();
+        var id_us= $('#id_us').val();
+
+        window.open('views/reporte.php?id_us='+id_us+'&fecha_inicio='+fecha_inicio+'&fecha_fin='+fecha_fin);  
+      }
+
+    </script>
+
+
+
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
     <!-- DATATABLES plugins -->
