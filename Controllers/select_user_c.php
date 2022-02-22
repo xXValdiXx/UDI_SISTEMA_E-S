@@ -44,8 +44,12 @@ class CEmpleadosC{
         $respuesta = CEmpleadosM::cantidad_horass();
         echo json_encode($respuesta);   
         
-    }
+    }  
 
-    
+    static public function RegistrosAC(){
+        $respuesta = CEmpleadosM::RegistrosA();
+        echo json_encode($respuesta);      
+        
+    }
 }
 ?>

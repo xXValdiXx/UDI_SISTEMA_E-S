@@ -80,6 +80,10 @@ switch ($_POST['ruta']) {
             $obj = CEmpleadosC::cantidad_horassC();
         
             break;
+
+    case 'obtenerRegistros':
+        $obj = CEmpleadosC::RegistrosAC();
+        break;
     default:
         echo 'No existe la ruta especificada';
         break;

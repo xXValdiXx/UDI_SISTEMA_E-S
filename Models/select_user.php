@@ -90,9 +90,15 @@ class CEmpleadosM extends connection
 
         $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
         return $datosUsuario;
-    }
+    }  
 
-    
-   
+    static public function RegistrosA()
+    {
+        //Obtener la información de los usuarios.
+        $dataUser = connection::Conexion()->prepare("SELECT * FROM usuarios INNER JOIN registros ON usuarios.id = registros.id_usuario ORDER BY registros.id");
+        $dataUser->execute();
+        $datosUsuario = $dataUser->fetchAll(PDO::FETCH_ASSOC);
+        return $datosUsuario;
+    }
 }
 
