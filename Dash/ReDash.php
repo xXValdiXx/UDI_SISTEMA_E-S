@@ -100,19 +100,71 @@ require_once "../Models/select_user.php";
           <div class="form-group">
           <button type="submit" onclick="ReportePDF();">Generar PDF</button>
           </div>
-         
         </div>
-        
-        
 
+        <br>
+        
+        <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="Usuarios" name="Usuarios" width="100%" cellspacing="0" style="margin: 0 auto;">
+                      <thead>
+                        <tr>
 
-            
+                          <th>NUM EMPLEADO</th>
+                          <th>Area</th>
+                          <th>Puesto</th>
+                          <th>Hora Entrada</th>
+                          <th>Fecha Entrada</th>
+                          <th>Hora Salida</th>
+                          <th>Fecha Salida</th>
+                      </thead>
+
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
       </section>
       <!-- /.content -->
     </div>
 
 
     <?php require_once "views/footer.php" ?>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- DATATABLES plugins -->
+    <script src="plugins/datatables_2/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables_2/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+      var table_ListaUsuarios = $('#Usuarios').DataTable();
+
+      $.ajax({
+        url: "../rutas.php",
+        type: "post",
+        data: {
+          ruta: 'obtenerRegistros'
+        },
+        success: function(r) {
+          r = JSON.parse(r);
+
+          $.each(r, function(index, item) {
+            table_ListaUsuarios.row.add({
+              0: item['numEmpleado'],
+              1: item['area'],
+              2: item['puesto'],
+              3: item['horaEntrada'],
+              4: item['fechaEntrada'],
+              5: item['fechaSalida'],
+              6: item['horaSalida'],
+            }).draw();
+          });
+
+          
+        }
+      });
+    </script>
 
     <script>
       function ReportePDF(){
@@ -122,8 +174,8 @@ require_once "../Models/select_user.php";
 
         window.open('views/reporte.php?id_us='+id_us+'&fecha_inicio='+fecha_inicio+'&fecha_fin='+fecha_fin);  
       }
-
     </script>
+
 
 
 
