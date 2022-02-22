@@ -18,19 +18,21 @@ class PDF extends FPDF{
     // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,8,'REPORTE DE ASISTENCIA.',0,1,'C',0);
+    $this->Cell(30,2,"REPORTE DE ASISTENCIA.",0,1,'C',0);
+	$this->Cell(195,11,"DESDE: "  . $_GET['fecha_inicio'] . "  HASTA: " . $_GET['fecha_fin'],0,1,'C',0);
+
 	$this->SetFont("Arial", "", 10);
 	$this->Cell(20);
 	$id_us = $_GET['id_us'];
 	$articulo = new CEmpleadosM();
 	$rspta = $articulo->ReportInUs($id_us);
 	foreach($rspta as $row){
-	$this->Cell(40,38,"NOMBRE: " . utf8_decode($row['nombre']),0,0,'C');
-	$this->Cell(1,38,utf8_decode($row['apellidoPaterno']),0,0,'C');
-	$this->Cell(28,38,utf8_decode($row['apellidoMaterno']),0,0,'C');
-	$this->Cell(40,38,"CORREO: " . $row['correo'],0,0,'C');
+	$this->Cell(40,25,"NOMBRE: " . utf8_decode($row['nombre']),0,0,'C');
+	$this->Cell(1,25,utf8_decode($row['apellidoPaterno']),0,0,'C');
+	$this->Cell(28,25,utf8_decode($row['apellidoMaterno']),0,0,'C');
+	$this->Cell(40,25,"CORREO: " . $row['correo'],0,0,'C');
 	}
-	$this->Cell(45,38, "FECHA: " . date('d-m-Y'), 0, 1, "C");	
+	$this->Cell(45,25, "FECHA: " . date('d-m-Y'), 0, 1, "C");	
 	
 }
 
@@ -57,7 +59,7 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 
 
-$pdf->Image('../public/sep.png',10,40,195,15);
+$pdf->Image('../public/sep.png',10,35,195,15);
 
 $pdf->SetFont('Arial','B',10);
 $pdf->SetFillColor(158, 158, 158);
